@@ -28,8 +28,14 @@ exports.register = async (req, res, next) => {
 };
 
 
-exports.logout = (req, res)=>{
-  req.logout(()=>{
-    res.json({mesage:'Logged out'});
-  })
-}
+exports.logout = (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+
+    req.session.destroy((err) => {
+      if (err) return next(err);
+      res.clearCookie("connect.sid");
+      res.json({ message: "Logged out and session destroy" });
+    });
+  });
+};
