@@ -10,10 +10,17 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "install": "^0.13.0",
     "mongoose": "^8.16.3",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "npm": "^11.4.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   }
 }
