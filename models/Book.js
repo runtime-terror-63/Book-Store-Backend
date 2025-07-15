@@ -3,21 +3,22 @@ const mongoose = require("mongoose");
 const bookSchema = mongoose.Schema({
   title: {
     type: String,
-    author: {
-      name: {
-        type: String,
-        required: true,
-      },
-      birthDate: {
-        type: Date,
-      },
+    required:true
+  },
+  author: {
+    name: {
+      type: String,
+      required: true,
     },
-    publicationDate: {
+    birthDate: {
       type: Date,
     },
-    pageCount: {
-      type: Number,
-    },
+  },
+  publicationDate: {
+    type: Date,
+  },
+  pageCount: {
+    type: Number,
   },
 });
 
