@@ -2,11 +2,11 @@ const User = require('../models/User');
 
 exports.register = async (req, res, next) => {
   try {
-    const { firstname, lastname, email, password } = req.body;
+    const { firstname, lastname, email, password, role } = req.body;
     const exists = await User.findOne({ email });
     if (exists) return res.status(400).json({ message: 'User already exists' });
 
-    const user = new User({ firstname, lastname, email, password });
+    const user = new User({ firstname, lastname, email, password, role });
     await user.save();
 
     // Only send response after login
@@ -18,6 +18,7 @@ exports.register = async (req, res, next) => {
           firstname: user.firstname,
           lastname: user.lastname,
           email: user.email,
+          role:user.role,
         },
       });
     });
