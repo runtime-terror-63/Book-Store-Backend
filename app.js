@@ -1,5 +1,6 @@
 const express = require('express');
-const mongoose
+const mongoose = require("./db");
+require("dotenv").config();
 const app = express();
 
 app.get('/', (req, res)=>{
