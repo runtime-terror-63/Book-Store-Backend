@@ -8,6 +8,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const bookRoutes = require("./routes/bookRoutes");
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
@@ -37,8 +38,10 @@ app.get("/", (req, res) => {
 
 app.use(authRoutes);
 app.use("/books", bookRoutes);
+app.use(errorHandler);
 
 // Start server
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
